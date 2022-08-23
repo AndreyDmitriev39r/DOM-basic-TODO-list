@@ -1,8 +1,14 @@
+/* Initital styling */
+
 :root {
   --tempbg: #aeaeae;
   --addtaskbg: #fff;
   --plusbtnbg: rgb(177, 238, 177);
   --plusbtnbghover: green;
+  --checktaskbg: lightblue;
+  --checktaskhover: blue;
+  --deletetaskbg: rgb(216, 133, 133);
+  --deletetaskhover: red;
 }
 
 *, *::before, *::after {
@@ -31,7 +37,7 @@ body, .container {
   width: 100%;  
 }
 
-#add-task-container, input, #add-task {
+#add-task-container, input, #add-task, .task, .task button {
   border-radius: 6px;
 }
 
@@ -44,6 +50,7 @@ input, #add-task {
   max-width: 400px;
   background-color: var(--addtaskbg);
   padding: 9px;
+  margin-bottom: 1.4rem;
   /* aligning stuff with flexbox */
   display: flex;
 }
@@ -51,8 +58,7 @@ input, #add-task {
 input {
   flex: 5;
   margin-right: 0.9rem;  
-  padding: 0.2rem;
-  
+  padding: 0.2rem;  
 }
 
 #add-task {
@@ -61,11 +67,62 @@ input {
   transition: .4s;
 }
 
-input, i::before {
+input, #add-task i::before {
   font-size: 1.2rem;
 }
 
 #add-task:hover {
   background-color: var(--plusbtnbghover);
   cursor: pointer;
+}
+
+/* styling for dynamically added content */
+/* TODO later cann unite stuff from here and from .add-container */
+#task-container {
+  width: 65%;
+  max-width: 400px;
+}
+
+.task {
+  width: 100%;
+  background-color: var(--addtaskbg);
+  
+  margin-bottom: 1.1rem;
+  padding: 7px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+  flex: 4;
+  padding: 5px;  
+}
+
+li, .checkTask i::before, .deleteTask i::before {
+  font-size: 1.45rem;
+}
+
+.task button {
+  flex: 1;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.checkTask {
+  background-color: var(--checktaskbg);
+  margin-right: 0.3rem;
+}
+
+.deleteTask {
+  background-color: var(--deletetaskbg);
+}
+
+.checkTask:hover {
+  background-color: var(--checktaskhover);
+}
+
+.deleteTask:hover {
+  background-color: var(--deletetaskhover);
 }

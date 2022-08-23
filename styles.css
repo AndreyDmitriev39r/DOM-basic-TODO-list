@@ -1,5 +1,8 @@
 :root {
-  --tempbg: #aeaeae;  
+  --tempbg: #aeaeae;
+  --addtaskbg: #fff;
+  --plusbtnbg: rgb(177, 238, 177);
+  --plusbtnbghover: green;
 }
 
 *, *::before, *::after {
@@ -10,10 +13,59 @@
 }
 
 body {
+  /* example of adding image */
+  /* background: url(someURL) no-repeat center center/cover; */
   height: 100vh;
   background-color: var(--tempbg);
+}
+
+body, .container {
+  /* needed additional moves with .container, because added width = 45% */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  width: 100%;  
+}
+
+#add-task-container, input, #add-task {
+  border-radius: 6px;
+}
+
+input, #add-task {
+  box-shadow: 0.1rem 0.1rem gray;
+}
+
+#add-task-container {
+  width: 65%;
+  max-width: 400px;
+  background-color: var(--addtaskbg);
+  padding: 9px;
+  /* aligning stuff with flexbox */
+  display: flex;
+}
+
+input {
+  flex: 5;
+  margin-right: 0.9rem;  
+  padding: 0.2rem;
+  
+}
+
+#add-task {
+  flex: 1;
+  background-color: var(--plusbtnbg);
+  transition: .4s;
+}
+
+input, i::before {
+  font-size: 1.2rem;
+}
+
+#add-task:hover {
+  background-color: var(--plusbtnbghover);
+  cursor: pointer;
 }

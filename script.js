@@ -1,3 +1,7 @@
+// OPTIONAL TO DO
+
+// figure out how and where to store this stuff actually
+
 // constants
 
 const taskContainer = document.getElementById('task-container');
@@ -7,6 +11,20 @@ const addTask = document.getElementById('add-task');
 // console.log(addTaskcontainer, inputTask, addTask);
 
 // functions
+
+function lineThrough() {
+  // console.log(this.parentElement);
+  this.parentElement.style.textDecoration  = 'line-through';
+}
+
+
+// here maybe can use arrow func
+function removeTask(e) {
+  let target = e.target;
+  // console.log(target);
+  // console.log(target.parentElement);
+  target.parentElement.parentElement.remove();
+}
 
 const addNewTask = () => {
   let task = document.createElement('div');
@@ -36,6 +54,11 @@ const addNewTask = () => {
   }
 
   inputTask.value = "";
+
+  // adding event listeners to created elems
+
+  checkButton.addEventListener('click', lineThrough);
+  deleteButton.addEventListener('click', removeTask);
 }
 
 // event listeners
